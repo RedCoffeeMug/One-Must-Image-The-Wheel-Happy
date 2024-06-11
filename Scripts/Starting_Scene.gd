@@ -1,5 +1,8 @@
 extends Node2D
 
+var WiseWords = ["Life or bath for dry cat. Does the cat not clean their fur?"]
+
+
 @onready var Dialogue = $Camera2D/Dialogue
 @onready var DialogueBody = $Camera2D/Dialogue/VBoxContainer/Body_Text
 @onready var Map : TileMap = $TileMap
@@ -15,10 +18,11 @@ func _input(_event):
 	if Input.is_action_just_pressed("Click"):
 		var MousePos = get_global_mouse_position()
 		var TilePos = Map.local_to_map(MousePos)
-		var Data = Map.get_cell_tile_data(0, TilePos)
-		if (null == Data):
-			print("nothing at", TilePos)
+		print(MousePos)
+		if TilePos == Map.local_to_map(Vector2(402.0025, 34.00135)):
+			print("guh")
+			Crow_Guy_Clicked()
 
-func _on_crow_guy_clicked():
-	DialogueBody.text = "Life or bath for dry cat"
+func Crow_Guy_Clicked():
+	DialogueBody.text = WiseWords.pick_random()
 	Dialogue.show()
