@@ -1,6 +1,6 @@
 extends Node2D
 
-var WiseWords = ["Life or bath for dry cat. Does the cat not clean their fur?"]
+var WiseWords = ["'Life or bath for dry cat.' Does the cat not clean their fur?"]
 
 
 @onready var Dialogue = $Camera2D/Dialogue
